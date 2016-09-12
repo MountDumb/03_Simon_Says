@@ -72,36 +72,18 @@ namespace _03_Simon_Says
             whitelist.Add("over");
             whitelist.Add("the");
 
-            List<string> templist = new List<string>();
+            string[] templist = sentence.Split(); ;
 
-            string finalstring = "", tempstring = "";
-            bool running = true;
-            int i = 0;
+            string finalstring = "";
+          
 
-            while (running)
+            foreach (string s in templist)
             {
-                if (i + 1 == sentence.Length) running = false;
-
-                if (!char.IsWhiteSpace(sentence[i]))
-                {
-                    tempstring += sentence[i];
-
-                }
-                else 
-                {
-                    templist.Add(tempstring);
-                    tempstring = "";
-                }
-                i++;
-            }
-
-            foreach (var v in templist)
-            {
-                foreach (var s in whitelist)
+                foreach (var v in whitelist)
                 {
                     if (v != s)
                     {
-                        char.ToUpper(v[0]);
+                      
                     }
                 }
             }
