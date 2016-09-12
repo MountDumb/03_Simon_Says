@@ -1,4 +1,6 @@
-﻿namespace _03_Simon_Says
+﻿using System.Collections.Generic;
+
+namespace _03_Simon_Says
 {
     internal class Simon
     {
@@ -63,6 +65,56 @@
             return finalstring; 
         }
 
-    
+        public string Titleize(string sentence)
+        {
+            List<string> whitelist = new List<string>();
+            whitelist.Add("and");
+            whitelist.Add("over");
+            whitelist.Add("the");
+
+            List<string> templist = new List<string>();
+
+            string finalstring = "", tempstring = "";
+            bool running = true;
+            int i = 0;
+
+            while (running)
+            {
+                if (i + 1 == sentence.Length) running = false;
+
+                if (!char.IsWhiteSpace(sentence[i]))
+                {
+                    tempstring += sentence[i];
+
+                }
+                else 
+                {
+                    templist.Add(tempstring);
+                    tempstring = "";
+                }
+                i++;
+            }
+
+            foreach (var v in templist)
+            {
+                foreach (var s in whitelist)
+                {
+                    if (v != s)
+                    {
+                        char.ToUpper(v[0]);
+                    }
+                }
+            }
+
+            foreach (var v in templist)
+            {
+                finalstring += v + " ";
+            }
+
+            return finalstring;
+        }
+
+
+
     }
 }
