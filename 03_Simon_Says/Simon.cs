@@ -75,25 +75,27 @@ namespace _03_Simon_Says
             string[] templist = sentence.Split(); ;
 
             string finalstring = "";
-          
 
-            foreach (string s in templist)
+            var arr = templist[0].ToCharArray();
+            arr[0] = char.ToUpperInvariant(arr[0]);
+            finalstring += new string(arr) + " ";
+
+            for (int i = 1; i < templist.Length; i++)
             {
-                foreach (var v in whitelist)
+                if (whitelist.Contains(templist[i]))
                 {
-                    if (v != s)
-                    {
-                      
-                    }
+                    finalstring += templist[i] + " ";
+                }
+                else
+                {
+                    arr = templist[i].ToCharArray();
+                    arr[0] = char.ToUpperInvariant(arr[0]);
+                    finalstring += new string(arr) + " ";
+
                 }
             }
 
-            foreach (var v in templist)
-            {
-                finalstring += v + " ";
-            }
-
-            return finalstring;
+            return finalstring.Trim();
         }
 
 
