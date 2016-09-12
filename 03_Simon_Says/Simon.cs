@@ -72,14 +72,19 @@ namespace _03_Simon_Says
 
         public string Titleize(string sentence)
         {
+
+            string[] templist = sentence.Split();
+
+            string finalstring = "";
+
+            // The List<> class can be used by adding "using System.Collections.Generic;" to the top  of this page. Alternatively use an arrary.
+
             List<string> whitelist = new List<string>();
             whitelist.Add("and");
             whitelist.Add("over");
             whitelist.Add("the");
 
-            string[] templist = sentence.Split(); ;
-
-            string finalstring = "";
+            
 
             char[] arr = templist[0].ToCharArray();
             arr[0] = char.ToUpperInvariant(arr[0]);
@@ -101,6 +106,38 @@ namespace _03_Simon_Says
             }
 
             return finalstring.Trim();
+
+            // Array variant:
+
+            //string[] templist = sentence.Split();
+            //string finalstring = "";
+
+            //string[] whitelist = { "and", "over", "the" }; 
+
+            //char[] arr = templist[0].ToCharArray();
+            //arr[0] = char.ToUpperInvariant(arr[0]);
+            //finalstring += new string(arr) + " ";
+
+            //for (int i = 1; i < templist.Length; i++)
+            //{
+            //    bool upper = true;
+            //    foreach (string s in whitelist)
+            //    {
+            //        if (templist[i] == s)
+            //        {
+            //            finalstring += templist[i] + " ";
+            //            upper = false;
+            //        }
+            //    }
+            //    if (upper == true)
+            //    {
+            //        arr = templist[i].ToCharArray();
+            //        arr[0] = char.ToUpperInvariant(arr[0]);
+            //        finalstring += new string(arr) + " ";
+            //    }
+            //}
+
+            //return finalstring.Trim();
         }
 
 
