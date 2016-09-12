@@ -77,14 +77,15 @@ namespace _03_Simon_Says
 
             string finalstring = "";
 
-            // The List<> class can be used by adding "using System.Collections.Generic;" to the top  of this page. Alternatively use an arrary.
+            // The List<> class can be used by adding "using System.Collections.Generic;" to the top  of this page. 
+            //Alternatively use the array version below.
 
             List<string> whitelist = new List<string>();
             whitelist.Add("and");
             whitelist.Add("over");
             whitelist.Add("the");
 
-            
+
 
             char[] arr = templist[0].ToCharArray();
             arr[0] = char.ToUpperInvariant(arr[0]);
@@ -112,7 +113,7 @@ namespace _03_Simon_Says
             //string[] templist = sentence.Split();
             //string finalstring = "";
 
-            //string[] whitelist = { "and", "over", "the" }; 
+            //string[] whitelist = { "and", "over", "the" };
 
             //char[] arr = templist[0].ToCharArray();
             //arr[0] = char.ToUpperInvariant(arr[0]);
