@@ -62,7 +62,12 @@ namespace _03_Simon_Says
                 i++;
             }
 
-            return finalstring; 
+            return finalstring;
+
+            //Alternativ:
+
+            //string[] output = sentence.Split();
+            //return output[0];
         }
 
         public string Titleize(string sentence)
