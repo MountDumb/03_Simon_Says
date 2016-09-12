@@ -4,11 +4,11 @@ namespace _03_Simon_Says
 {
     internal class Simon
     {
-        
+
 
         public Simon()
         {
-            
+
 
         }
 
@@ -64,7 +64,7 @@ namespace _03_Simon_Says
 
             return finalstring;
 
-            //Alternativ:
+            // Alternative:
 
             //string[] output = sentence.Split();
             //return output[0];
@@ -75,71 +75,57 @@ namespace _03_Simon_Says
 
             string[] templist = sentence.Split();
 
-            string finalstring = "";
-
-            // The List<> class can be used by adding "using System.Collections.Generic;" to the top  of this page. 
-            //Alternatively use the array version below.
-
+         // The List<> class can be used by adding "using System.Collections.Generic;" to the top of this page.
+          
             List<string> whitelist = new List<string>();
             whitelist.Add("and");
             whitelist.Add("over");
             whitelist.Add("the");
 
 
+            char[] arr;
 
-            char[] arr = templist[0].ToCharArray();
-            arr[0] = char.ToUpperInvariant(arr[0]);
-            finalstring += new string(arr) + " ";
-
-            for (int i = 1; i < templist.Length; i++)
+            for (int i = 0; i < templist.Length; i++)
             {
-                if (whitelist.Contains(templist[i]))
-                {
-                    finalstring += templist[i] + " ";
-                }
-                else
+                if (i == 0 || !whitelist.Contains(templist[i]))
                 {
                     arr = templist[i].ToCharArray();
                     arr[0] = char.ToUpperInvariant(arr[0]);
-                    finalstring += new string(arr) + " ";
-
+                    templist[i] = new string(arr);
                 }
+
             }
 
-            return finalstring.Trim();
+            return string.Join(" ", templist);
 
-            // Array variant:
+    // Array variant:
 
-            //string[] templist = sentence.Split();
-            //string finalstring = "";
+    //string[] templist = sentence.Split();
+    //string[] whitelist = { "and", "over", "the" };
+    //char[] arr;
 
-            //string[] whitelist = { "and", "over", "the" };
+    //for (int i = 0; i < templist.Length; i++)
+    //{
+    //    bool upper = true;
 
-            //char[] arr = templist[0].ToCharArray();
-            //arr[0] = char.ToUpperInvariant(arr[0]);
-            //finalstring += new string(arr) + " ";
+    //    foreach (string s in whitelist)
+    //    {
+    //        if (templist[i] == s)
+    //        {
+    //            upper = false;
+    //        }
+    //    }
 
-            //for (int i = 1; i < templist.Length; i++)
-            //{
-            //    bool upper = true;
-            //    foreach (string s in whitelist)
-            //    {
-            //        if (templist[i] == s)
-            //        {
-            //            finalstring += templist[i] + " ";
-            //            upper = false;
-            //        }
-            //    }
-            //    if (upper == true)
-            //    {
-            //        arr = templist[i].ToCharArray();
-            //        arr[0] = char.ToUpperInvariant(arr[0]);
-            //        finalstring += new string(arr) + " ";
-            //    }
-            //}
+    //    if (i == 0 ||upper == true )
+    //    {
+    //        arr = templist[i].ToCharArray();
+    //        arr[0] = char.ToUpperInvariant(arr[0]);
+    //        templist[i] = new string(arr);
+    //    }
+    //}
 
-            //return finalstring.Trim();
-        }
+    //return string.Join(" ", templist);
+}
 
 
 
