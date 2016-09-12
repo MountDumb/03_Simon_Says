@@ -76,7 +76,7 @@ namespace _03_Simon_Says
 
             string finalstring = "";
 
-            var arr = templist[0].ToCharArray();
+            char[] arr = templist[0].ToCharArray();
             arr[0] = char.ToUpperInvariant(arr[0]);
             finalstring += new string(arr) + " ";
 
